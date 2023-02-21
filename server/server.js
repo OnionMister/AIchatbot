@@ -1,10 +1,10 @@
 import express from 'express';
-import * as dotenv from 'dotenv';
+import { config } from 'dotenv';
 import cors from 'cors';
 import { Configuration, OpenAIApi } from 'openai';
 
 // 获取环境变量
-dotenv.config();
+config();
 
 const configuration = new Configuration({
     apiKey: process.env.OPEN_API_KEY,
@@ -17,7 +17,7 @@ app.use(express.json()); // 允许前端向此服务传输json
 
 app.get('/', (req, res) => {
      res.status(200).send({
-        message: 'Hello from ChatBot',
+        message: 'Hello from chatbot-server',
      });
 })
 
