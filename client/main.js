@@ -3,7 +3,7 @@ import user from './assets/user.svg';
 
 const form = document.querySelector('form');
 const chatContainer = document.querySelector('#chat_container');
-
+const textarea = document.querySelector('textarea');
 let loadInterval;
 
 // loading...
@@ -74,6 +74,7 @@ async function handleSubmit(e) {
     // 用户信息累加入聊天框
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'));
     form.reset();
+    textarea.rows = 1;
 
     // AI信息累加入聊天框
     const uniqueId = generateUniqueId();
@@ -123,7 +124,6 @@ let minRows = 1;
 // 最大高度，超过则出现滚动条
 let maxRows = 8;
 function autoResize({ target: t }) {
-    console.log('t: ', t);
     if (t.scrollTop == 0) t.scrollTop = 1;
     while (t.scrollTop == 0) {
         if (t.rows > minRows)
@@ -149,4 +149,4 @@ function autoResize({ target: t }) {
         }
     }
 }
-document.querySelector('textarea').addEventListener('keyup', autoResize)
+textarea.addEventListener('keyup', autoResize)

@@ -174,7 +174,7 @@ body {
    * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
   */
   white-space: pre-wrap; 
-
+  word-break: break-all;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -202,6 +202,7 @@ form {
 
 textarea {
   width: 100%;
+  min-height: 24px;
   color: #fff;
   font-size: 16px;
   background: transparent;
