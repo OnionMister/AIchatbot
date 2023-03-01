@@ -112,6 +112,8 @@ async function handleSubmit(e) {
 }
 let isComposition = false;
 form.addEventListener('submit', handleSubmit);
+
+// 中文未选词状态下，按下回车不应触发提交，借助compositionstart和compositionend只在Chrome浏览器中实现。
 form.addEventListener('keydown', (e, b) => {
     if (e.code === 'Enter' && !isComposition) {
         handleSubmit(e);
