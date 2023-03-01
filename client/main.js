@@ -110,14 +110,20 @@ async function handleSubmit(e) {
         alert(err);
     }
 }
-
+let isComposition = false;
 form.addEventListener('submit', handleSubmit);
-form.addEventListener('keyup', (e) => {
-    if (e.code === 'Enter') {
+form.addEventListener('keydown', (e, b) => {
+    if (e.code === 'Enter' && !isComposition) {
         handleSubmit(e);
     }
 });
 
+form.addEventListener('compositionstart', (e) => {
+    isComposition = true;
+})
+form.addEventListener('compositionend', (e) => {
+    isComposition = false;
+})
 // 自适应textarea
 // 最小高度
 let minRows = 1;
