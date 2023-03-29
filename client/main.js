@@ -87,8 +87,8 @@ async function handleSubmit(e) {
     loader(messageDiv);
 
     // 请求服务
-    // const response = await fetch('http://localhost:5000', {
-    const response = await fetch('https://aichatbot-rriv.onrender.com', {
+    const response = await fetch('http://localhost:5000', {
+    // const response = await fetch('https://aichatbot-rriv.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
